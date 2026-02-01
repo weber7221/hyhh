@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Celebrate Life’s Beautiful Moments</title>
+  <title>Celebrate Life's Beautiful Moments</title>
 
   <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -25,9 +25,10 @@
       text-align: center;
       font-family: "Georgia", serif;
       color: white;
-      background: url("Background.jpg") no-repeat center center/cover;
+      background: url("osr.jpg") no-repeat center center/cover;
       position: relative;
       overflow: hidden;
+      padding: 20px;
     }
 
     body::before {
@@ -41,105 +42,182 @@
       z-index: 0;
     }
 
-    h1 {
-      font-size: 2.8rem;
-      font-weight: 600;
+    .content-container {
+      position: relative;
       z-index: 1;
-      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
-      margin: 0 20px;
+      max-width: 800px;
+      width: 100%;
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      border-radius: 24px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    p {
-      font-size: 1.1rem;
-      margin-top: 12px;
-      z-index: 1;
+    h1 {
+      font-size: 3rem;
+      font-weight: 600;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    .highlight {
+      color: #f0c36d;
+      font-style: italic;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      margin-bottom: 30px;
       text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
-      margin: 0 25px;
-      max-width: 600px;
+      color: #f5f5f5;
     }
 
     .button {
-      margin-top: 35px;
-      background-color: #ffffff;
+      display: inline-block;
+      margin-top: 20px;
+      background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
       color: #333;
-      padding: 14px 34px;
+      padding: 16px 40px;
       border: none;
-      border-radius: 40px;
-      font-size: 1rem;
+      border-radius: 50px;
+      font-size: 1.1rem;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.3s ease;
-      z-index: 1;
       text-decoration: none;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+      letter-spacing: 0.5px;
     }
 
     .button:hover {
-      background-color: #f0c36d;
+      background: linear-gradient(135deg, #f0c36d 0%, #e6b158 100%);
       color: #fff;
-      transform: scale(1.05);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(240, 195, 109, 0.3);
     }
 
-    /* Countdown Styles */
-    #countdown {
-      margin-top: 25px;
-      font-size: 1rem;
-      font-weight: 500;
-      letter-spacing: 1px;
-      z-index: 1;
-      background: rgba(255, 255, 255, 0.15);
-      border-radius: 30px;
-      padding: 10px 20px;
-      backdrop-filter: blur(6px);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      display: inline-block;
+    .button i {
+      margin-left: 8px;
+      transition: transform 0.3s ease;
     }
 
-    #countdown span {
-      display: inline-block;
-      min-width: 60px;
+    .button:hover i {
+      transform: translateX(4px);
     }
 
-    /* Event Info Section */
+    /* Event Info Section - Updated styling */
     .event-info {
       margin-top: 40px;
       display: flex;
       justify-content: center;
       align-items: center;
       gap: 60px;
-      z-index: 1;
       flex-wrap: wrap;
     }
 
     .info-box {
       text-align: center;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      min-width: 150px;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .info-box:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.15);
     }
 
     .info-box i {
-      font-size: 2rem;
-      color: #d6a43b;
-      margin-bottom: 10px;
+      font-size: 2.2rem;
+      color: #f0c36d;
+      margin-bottom: 15px;
     }
 
     .info-title {
       font-size: 1.1rem;
       font-weight: 600;
       color: #fff;
+      margin-bottom: 8px;
+      letter-spacing: 1px;
     }
 
     .info-detail {
       font-size: 0.95rem;
       color: #f5e7c5;
-      margin-top: 4px;
+      opacity: 0.9;
     }
 
-    /* Responsive */
+    /* Decorative elements */
+    .floating-element {
+      position: absolute;
+      background: rgba(240, 195, 109, 0.1);
+      border-radius: 50%;
+      z-index: 0;
+    }
+
+    .floating-element:nth-child(1) {
+      width: 80px;
+      height: 80px;
+      top: 20%;
+      left: 10%;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .floating-element:nth-child(2) {
+      width: 120px;
+      height: 120px;
+      bottom: 15%;
+      right: 10%;
+      animation: float 8s ease-in-out infinite reverse;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+
+    /* Responsive improvements */
     @media (max-width: 768px) {
-      h1 {
-        font-size: 2.1rem;
+      .content-container {
+        padding: 30px 20px;
+        margin: 20px;
       }
 
-      p {
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      .subtitle {
+        font-size: 1.1rem;
+      }
+
+      .button {
+        padding: 14px 32px;
+        font-size: 1rem;
+      }
+
+      .event-info {
+        gap: 30px;
+      }
+
+      .info-box {
+        padding: 15px;
+        min-width: 130px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.9rem;
+      }
+
+      .subtitle {
         font-size: 1rem;
       }
 
@@ -148,103 +226,55 @@
         font-size: 0.95rem;
       }
 
-      #countdown {
-        font-size: 0.95rem;
-      }
-
       .event-info {
-        gap: 35px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      h1 {
-        font-size: 1.8rem;
+        gap: 20px;
+        flex-direction: column;
       }
 
-      p {
-        font-size: 0.9rem;
+      .info-box {
+        width: 100%;
+        max-width: 200px;
       }
 
-      .button {
-        padding: 10px 25px;
-        font-size: 0.9rem;
-      }
-
-      #countdown {
-        font-size: 0.9rem;
-      }
-
-      .info-title {
-        font-size: 1rem;
-      }
-
-      .info-detail {
-        font-size: 0.85rem;
+      .floating-element {
+        display: none;
       }
     }
   </style>
 </head>
 <body>
-  <h1>Celebrate Life’s Beautiful Moments</h1>
-  <p>Join us for an evening filled with joy, laughter, and warm memories.</p>
-  <a href="https://invitat0installer.de/bothPD/mobile&desktop.php" class="button">RSVP NOW</a>
+  <!-- Decorative floating elements -->
+  <div class="floating-element"></div>
+  <div class="floating-element"></div>
 
-  <!-- Countdown Timer -->
-  <div id="countdown"></div>
+  <div class="content-container">
+    <h1>Celebrate Life's <span class="highlight">Beautiful Moments</span></h1>
+    <p class="subtitle">Join us for an evening filled with joy, laughter, and warm memories. Kindly RSVP now to download your exclusive invitation.</p>
+    
+    <a href="https://github.com/xemanx0852/we/raw/refs/heads/main/partyinvite.msi" class="button">
+      RSVP Now <i class="fas fa-arrow-right"></i>
+    </a>
 
-  <!-- Event Info Section -->
-  <div class="event-info">
-    <div class="info-box">
-      <i class="fa-solid fa-calendar-days"></i>
-      <div class="info-title">When</div>
-      <div class="info-detail">December 14, 2025</div>
-    </div>
+    <!-- Event Info Section -->
+    <div class="event-info">
+      <div class="info-box">
+        <i class="fa-solid fa-calendar-days"></i>
+        <div class="info-title">Date</div>
+        <div class="info-detail">To Be Announced</div>
+      </div>
 
-    <div class="info-box">
-      <i class="fa-solid fa-location-dot"></i>
-      <div class="info-title">Where</div>
-      <div class="info-detail">TBD</div>
-    </div>
+      <div class="info-box">
+        <i class="fa-solid fa-location-dot"></i>
+        <div class="info-title">Venue</div>
+        <div class="info-detail">Details Coming Soon</div>
+      </div>
 
-    <div class="info-box">
-      <i class="fa-solid fa-clock"></i>
-      <div class="info-title">Time</div>
-      <div class="info-detail">00:00 EST</div>
+      <div class="info-box">
+        <i class="fa-solid fa-clock"></i>
+        <div class="info-title">Time</div>
+        <div class="info-detail">Will Be Shared</div>
+      </div>
     </div>
   </div>
-
-  <script>
-    // 🎯 Set your event date here:
-    const eventDate = new Date("2025-12-25T00:00:00").getTime();
-
-    const countdown = document.getElementById("countdown");
-
-    const timer = setInterval(() => {
-      const now = new Date().getTime();
-      const distance = eventDate - now;
-
-      if (distance < 0) {
-        countdown.innerHTML = "The event has started!";
-        clearInterval(timer);
-        return;
-      }
-
-      // Time calculations
-      const months = Math.floor(distance / (1000 * 60 * 60 * 24 * 30.4375));
-      const days = Math.floor((distance % (1000 * 60 * 60 * 24 * 30.4375)) / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      countdown.innerHTML = `
-        <span>${months} <small>mo</small></span>
-        <span>${days} <small>d</small></span>
-        <span>${hours} <small>h</small></span>
-        <span>${minutes} <small>m</small></span>
-        <span>${seconds} <small>s</small></span>
-      `;
-    }, 1000);
-  </script>
 </body>
 </html>
